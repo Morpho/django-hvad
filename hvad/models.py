@@ -168,7 +168,7 @@ class TranslatedFields(object):
             model._meta.original_attrs['unique_together'] = tuple(sconst)
         meta['unique_together'] = tuple(tconst)
         if not abstract:
-            meta['unique_together'] += (('language_code', 'master'),)
+            meta['unique_together'] += (('master', 'language_code'),)
 
         # Split fields in Meta.index_together
         sconst, tconst = self._split_together(
